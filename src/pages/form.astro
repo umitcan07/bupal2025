@@ -1,0 +1,11 @@
+---
+// Server-side redirect to form
+export const prerender = false;
+
+// Replace with your actual form URL
+const FORM_URL =
+  "https://cryptpad.fr/form/#/2/form/view/WUMFnKJV2M1ncO2mdHqxZKd0BMmfawv57ygxnV-XOC4/"; // Replace with your form URL
+
+// Perform the redirect
+return Astro.redirect(FORM_URL, 302);
+---
