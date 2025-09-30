@@ -1,21 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { EXTERNAL_URLS } from "../constants";
 export const prerender = false;
 ---
 
 <Layout>
   <main class="mx-auto max-w-xl px-6 pb-16 pt-6 text-center h-full">
-    <img src="/rhombus.svg" alt="BUPAL Logo" class="mx-auto mb-2 h-40 w-40" />
-    <p class="text-slate-800 font-medium text-lg">
+    <img src="/rhombus.svg" alt="BUPAL Logo" class="mx-auto mb-2 h-36 w-36" />
+    <p class="text-slate-800 font-medium text-base">
       Boğaziçi University Palestine Awareness
     </p>
-    <p class="mt-0.5 text-base text-slate-500">
+    <p class="mt-0.5 text-sm text-slate-500">
       Boğaziçi Üniversitesi Filistin Farkındalığı Topluluğu
     </p>
 
     <div class="mt-10 grid grid-cols-1 gap-4">
       <a
-        href="/whatsapp"
+        href={EXTERNAL_URLS.WHATSAPP}
+        target="_blank"
+        rel="noopener"
         class="group inline-flex items-center justify-between rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-emerald-800 transition hover:bg-emerald-100"
       >
         <span class="flex items-center gap-3">
@@ -28,7 +31,9 @@ export const prerender = false;
       </a>
 
       <a
-        href="/form"
+        href={EXTERNAL_URLS.FORM}
+        target="_blank"
+        rel="noopener"
         class="group inline-flex items-center justify-between rounded-xl border border-slate-200 bg-white px-5 py-4 text-slate-800 transition hover:bg-slate-50"
       >
         <span class="flex items-center gap-3">
@@ -41,7 +46,7 @@ export const prerender = false;
       </a>
 
       <a
-        href="/instagram"
+        href={EXTERNAL_URLS.INSTAGRAM}
         target="_blank"
         rel="noopener"
         class="group inline-flex items-center justify-between rounded-xl border border-pink-200 bg-pink-50 px-5 py-4 text-pink-800 transition hover:bg-pink-100"
@@ -56,7 +61,7 @@ export const prerender = false;
       </a>
 
       <a
-        href="/twitter"
+        href={EXTERNAL_URLS.TWITTER}
         target="_blank"
         rel="noopener"
         class="group inline-flex items-center justify-between rounded-xl border border-sky-200 bg-sky-50 px-5 py-4 text-sky-800 transition hover:bg-sky-100"
