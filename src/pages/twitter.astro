@@ -1,0 +1,10 @@
+---
+// Server-side redirect to Twitter/X
+export const prerender = false;
+
+// Replace with your actual Twitter URL
+const TWITTER_URL = "https://twitter.com/bupalestine";
+
+// Perform the redirect
+return Astro.redirect(TWITTER_URL, 302);
+---

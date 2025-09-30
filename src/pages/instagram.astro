@@ -1,0 +1,10 @@
+---
+// Server-side redirect to Instagram
+export const prerender = false;
+
+// Replace with your actual Instagram URL
+const INSTAGRAM_URL = "https://instagram.com/bupalestine";
+
+// Perform the redirect
+return Astro.redirect(INSTAGRAM_URL, 302);
+---
