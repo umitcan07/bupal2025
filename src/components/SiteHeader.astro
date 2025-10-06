@@ -1,0 +1,23 @@
+---
+interface Props {
+  subtitle?: string;
+}
+const { subtitle } = Astro.props as Props;
+---
+
+<header class="text-center">
+  <img src="/rhombus.svg" alt="BUPAL Logo" class="mx-auto mb-2 h-36 w-36" />
+  <p class="text-slate-800 font-medium text-base">
+    Boğaziçi University Palestine Awareness
+  </p>
+  <p class="mt-0.5 text-sm text-slate-500">
+    Boğaziçi Üniversitesi Filistin Farkındalığı Topluluğu
+  </p>
+</header>
+{
+  subtitle && (
+    <h2 class="mt-6 text-sm font-medium uppercase tracking-wide text-center text-slate-500">
+      {subtitle}
+    </h2>
+  )
+}

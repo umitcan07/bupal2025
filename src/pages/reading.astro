@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { READING_WEEKS } from "../constants";
+
+const weeks = READING_WEEKS.map(
+  ({ week, trTitle, enTitle, trAuthor, enAuthor }) => {
+    const folder = String(week).padStart(2, "0");
+    return {
+      label: `Week ${week}`,
+      trTitle,
+      enTitle,
+      trAuthor,
+      enAuthor,
+      tr: `/reading/week-${folder}/tr.pdf`,
+      en: `/reading/week-${folder}/en.pdf`,
+    };
+  }
+);
+---
+
+<Layout>
+  <main class="mx-auto max-w-3xl px-6 pb-16 pt-6">
+    <SiteHeader subtitle="Weekly readings" />
+
+    <section class="mt-10 grid grid-cols-1 gap-4">
+      {
+        weeks.map((w) => (
+          <div class="rounded-2xl border border-slate-200 bg-white/70 p-5 backdrop-blur transition hover:bg-white">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between flex-1">
+              <div class="flex items-start gap-3 text-left">
+                <i class="ri-book-2-line mt-0.5 text-2xl text-indigo-600 hidden sm:block" />
+                <div class="min-w-0">
+                  <div class="font-medium text-slate-800">{w.label}</div>
+                  <div class="mt-0.5 text-sm text-slate-500">
+                    <div>
+                      <span>{w.trTitle || "Turkish title TBD"}</span>
+                      <span class="px-1 opacity-40">—</span>
+                      <span>{w.trAuthor || "Author TBD"}</span>
+                    </div>
+                    <div>
+                      <span>{w.enTitle || "English title TBD"}</span>
+                      <span class="px-1 opacity-40">—</span>
+                      <span>{w.enAuthor || "Author TBD"}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-1 flex flex-wrap items-center gap-2 sm:mt-0 flex-none">
+                <a
+                  href={w.tr}
+                  class="inline-flex flex-1 items-center justify-center sm:flex-none sm:justify-start gap-1 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-800 transition hover:bg-emerald-100"
+                >
+                  <i class="ri-file-text-line" />
+                  <span>TR PDF</span>
+                </a>
+                <a
+                  href={w.en}
+                  class="inline-flex flex-1 items-center justify-center sm:flex-none sm:justify-start gap-1 rounded-lg border border-sky-200 bg-sky-50 px-3 py-1.5 text-sm font-medium text-sky-800 transition hover:bg-sky-100"
+                >
+                  <i class="ri-file-text-line" />
+                  <span>EN PDF</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </main>
+</Layout>

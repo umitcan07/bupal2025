@@ -4,3 +4,13 @@ export const EXTERNAL_URLS = {
   INSTAGRAM: "https://instagram.com/bupalestine",
   TWITTER: "https://twitter.com/bupalestine",
 } as const;
+
+export const READING_WEEKS = [
+  {
+    week: 1,
+    trTitle: "Gazze Cevap Yazıyor",
+    enTitle: "Gaza Writes Back",
+    trAuthor: "Derleyen: Rifat el-Arîr (Çeviren: Emrah Saraçoğlu)",
+    enAuthor: "Refaat Alareer, Editor",
+  },
+] as const;
