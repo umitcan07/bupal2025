@@ -4,16 +4,27 @@ import SiteHeader from "../components/SiteHeader.astro";
 import { READING_WEEKS } from "../constants";
 
 const weeks = READING_WEEKS.map(
-  ({ week, trTitle, enTitle, trAuthor, enAuthor }) => {
-    const folder = String(week).padStart(2, "0");
+  ({
+    week,
+    trTitle,
+    enTitle,
+    trAuthor,
+    enAuthor,
+    trDescription,
+    enDescription,
+    trPdf,
+    enPdf,
+  }) => {
     return {
       label: `Week ${week}`,
       trTitle,
       enTitle,
       trAuthor,
       enAuthor,
-      tr: `/reading/week-${folder}/tr.pdf`,
-      en: `/reading/week-${folder}/en.pdf`,
+      trDescription,
+      enDescription,
+      tr: trPdf,
+      en: enPdf,
     };
   }
 );
@@ -43,6 +54,17 @@ const weeks = READING_WEEKS.map(
                       <span class="px-1 opacity-40">—</span>
                       <span>{w.enAuthor || "Author TBD"}</span>
                     </div>
+                    {w.trDescription && (
+                      <div class="mt-1 text-xs text-slate-400">
+                        <span>{w.trDescription}</span>
+                        {w.enDescription && (
+                          <>
+                            <span class="px-1 opacity-40">—</span>
+                            <span>{w.enDescription}</span>
+                          </>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
